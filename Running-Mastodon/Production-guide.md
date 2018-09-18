@@ -335,7 +335,7 @@ We will be creating the certificate twice, once with TLS SNI validation in stand
 [nginx](http://nginx.org) and the [Let's Encrypt](https://letsencrypt.org/) tool works.
 
 ```sh
-certbot certonly --standalone -d example.com
+certbot certonly --standalone -d example.com -d www.example.com
 ```
 
 After that successfully completes, we will use the webroot method. This requires [nginx](http://nginx.org) to be running:
@@ -343,7 +343,7 @@ After that successfully completes, we will use the webroot method. This requires
 ```sh
 systemctl start nginx
 # The certbot tool will ask if you want issue a new cert, please choose that option
-certbot certonly --webroot -d example.com -w /home/mastodon/live/public/
+certbot certonly --webroot -d example.com -d www.example.com -w /home/mastodon/live/public/
 ```
 
 ### Automated Renewal Of Let's Encrypt Certificate
